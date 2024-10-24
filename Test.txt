@@ -1,1 +1,0 @@
-This is Abhishek file to tech docker image copy particular file from current file to destination
