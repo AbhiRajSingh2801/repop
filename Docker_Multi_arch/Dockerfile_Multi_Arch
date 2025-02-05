@@ -1,0 +1,18 @@
+FROM ubuntu as build
+
+
+WORKDIR /app
+
+COPY /docker-spring-boot-java-web-service-example/src /app
+
+
+FROM openjdk:8-jre-alpine
+
+WORKDIR /app
+
+COPY --from=build /app /app
+
+EXPOSE 8080
+
+# Run jar file when the container launches
+ENTRYPOINT ["java", "-jar", "docker-java-app-example.jar"]
